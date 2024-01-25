@@ -17,7 +17,9 @@ export function UserAvatar({name,image,className}:{name?:string,image?:string,cl
               className="rounded-full"/>
           )}
       {/* <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" /> */}
-      <AvatarFallback>CN</AvatarFallback>
+          <AvatarFallback className="dark:bg-white dark:text-black text-lg">
+              {name?.split(" ").map((n) => n[0]).join("")}
+          </AvatarFallback>
     </Avatar>
   )
 }
