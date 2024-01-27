@@ -6,7 +6,7 @@ import {
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 
-export function UserAvatar({name,image,className}:{name?:string,image?:string,className?:string}) {
+export function UserAvatar({name,image,className}:{name?:string | null,image?:string | null,className?:string}) {
   return (
       <Avatar className={cn("bg-white text-black", className)}>
           {image && (
