@@ -1,23 +1,25 @@
+import { authOptions } from '@/auth'
 import PricingCards from '@/components/PricingCards'
+import { getServerSession } from 'next-auth'
 import React from 'react'
 
-const PricingPage = () => {
+
+const Register = async() => {
+    const session = await getServerSession(authOptions)
   return (
-    <div className="isolate overflow-hidden bg-gray-900">
+    <div>
+      <div className="isolate overflow-hidden bg-gray-900">
         <div className="mx-auto max-w-7xl px-6 pb-96 pt-24 text-center sm:pt-32 lg:px-8">
             <div className="mx-auto max-w-4xl">
           <h2 className="text-base font-semibold leading-7 text-indigo-400"> Pricing
           </h2>
           <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            The right price for you, {" "}
-            <br className="hidden sm:inline lg:hidden" />
-            whoever you are
+            Lets handle your Membership {session?.user?.name?.split(" ")?.[0]} !
+            
           </p>
         </div>
         <div className="relative mt-6">
-          <p className="mx-auto max-w-2xl text-lg leading-8 text-white/60"> Were 99% sure we have a plan to match 100% of your needs
-          </p>
-
+          
           <svg
             viewBox="0 0 1208 1024"
             className="absolute -top-10 left-1/2 -z-10 h-[64rem] -translate-x-1/2 
@@ -42,12 +44,12 @@ const PricingPage = () => {
     </div>        
       <div className="flow-root bg-white pb-24 sm:pb-32">
         <div className="-mt-80">
-          <PricingCards redirect={true} />
+          <PricingCards redirect={false} />
           </div>
         </div>
   </div>
- 
+    </div>
   )
 }
 
-export default PricingPage
+export default Register
