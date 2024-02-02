@@ -2,7 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import DemoImg from '../components/images/app-preview/dummy.png'
 
-export default function Home() {
+
+export default async function Home() {
+  
   return (
     <main className="">
       <div className="relative isolate pt-14 dark:bg-gray-900">
